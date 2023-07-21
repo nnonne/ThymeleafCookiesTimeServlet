@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'application'
+    id 'org.javamodularity.moduleplugin' version '1.8.12'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+    id 'org.beryx.jlink' version '2.25.0'
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+group 'com.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '5.9.1'
+}
+
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+application {
+    mainModule = 'com.example.timeservlet'
+    mainClass = 'com.example.timeservlet.HelloApplication'
+}
+
+javafx {
+    version = '19'
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    implementation 'com.google.code.gson:gson:2.9.0'
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+    implementation 'javax.servlet:javax.servlet-api:4.0.1'
+}
+
