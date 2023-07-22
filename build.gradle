@@ -6,8 +6,8 @@ plugins {
     id 'org.openjfx.javafxplugin' version '0.0.13'
     id 'org.beryx.jlink' version '2.25.0'
 }
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 1.9
+targetCompatibility = 1.9
 
 group 'com.example'
 version '1.0-SNAPSHOT'
@@ -44,5 +44,6 @@ dependencies {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
     compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
     implementation 'javax.servlet:javax.servlet-api:4.0.1'
+    implementation 'org.thymeleaf:thymeleaf:3.1.0.M2'
 }
 
